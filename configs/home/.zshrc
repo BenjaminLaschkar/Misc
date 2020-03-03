@@ -52,7 +52,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 # You can set one of the optional three formats:
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.			
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
@@ -73,7 +73,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 plugins=(
 	git
 	fasd
-	zsh-autosuggestions 
+	zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,7 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-prompt_context() {} 
+prompt_context() {}
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

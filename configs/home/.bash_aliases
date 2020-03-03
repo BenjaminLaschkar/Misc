@@ -7,20 +7,15 @@ alias glost="git fsck --lost-found"
 alias gfa="git fetch --all"
 alias gs="git status"
 alias clear_tags="git tag -l | xargs git tag -d && git fetch --tags"
-alias get_all_guigui_commit="git log --author=\"Guillaume Muret\" --format=\"%H\" | sed 's/$/^!/g' | xargs -I{} git format-patch {}"
+
 gt() {
     git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" | fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --header "Press CTRL-S to toggle sort" --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % | head -$LINES'" --bind "enter:execute:echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'vim fugitive://\$(git rev-parse --show-toplevel)/.git//% < /dev/tty'"
 }
 alias resetAllRepo="repo forall -c \"git reset --hard ; git clean -fdx\""
 
 # Useful directory
-alias workscript='cd ${WORKSCRIPT}'
-alias aosp='cd ${ANDROID_AOSP}'
-alias essential='cd ${ESSENTIAL_AOSP}'
-alias hyper='cd ${HYPER_RAPIDE_AOSP}'
-alias rear='cd ${REAR8_RAPIDE_AOSP}'
-alias front='cd ${FRONT8_RAPIDE_AOSP}'
-alias deploy='cd ${DEPLOY_CONFIG}'
+WORKSPACE="/home/benjamin.laschkar/Workspace"
+alias workscript='cd ${WORKSPACE}'
 
 # Useful path from target aosp root path
 alias apps='cd ${TARGET_AOSP_ROOT_PATH}/vendor/parrot/apps'
@@ -50,14 +45,10 @@ packagepath() {
 	adb -s ${TARGET} shell pm path $1
 }
 
-# adb current activity displayed
-alias adb_current_activity="adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'"
-# adb update target date
-alias adb_date_sync="src-a && adb shell date $(date +%m%d%H%M%Y.%S)"
-# adb update get resolution 
-alias adb_screen_resolution="adb -s ${TARGET} shell dumpsys window displays | grep init | grep app"
-# adb update get resolution 
-alias adb_package_permissions="adb -s ${TARGET} shell dumpsys package com.parrot.car.localplayer | grep android.permission"
+ROBOT_ADDRESS="10.0.164.147"
+changerobotadress(){
+  ROBOT_ADDRESS=$1
+}
 
 # adb version of apk
 version() {
@@ -91,15 +82,6 @@ alias ll='ls -alFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 
-# Target command 
-alias cod='source connectPaciaDriver.sh'
-alias cop='source connectPaciaPassenger.sh'
-alias coh='source connectHypervisor.sh'
-alias coe='source connectEssential.sh'
-alias cor='source connectRear8.sh'
-alias cof='source connectFront8.sh'
-alias adbt="adb -s ${TARGET}"
-
 alias windowConfig="adb -s ${TARGET} shell dumpsys window | grep mGlobalConfiguration | grep mBounds=Rect"
 
 find_in_all_files(){
@@ -111,20 +93,9 @@ alias idesk='initDesk.sh'
 
 alias reboot="echo NO REBOOT !"
 
-alias remove_empty_lines="^(?:[\t ]*(?:\r?\n|\r))+"
-
 #############################
 # COMPUTER SPECIAL SOFTWARE #
 #############################
 
-# Use for decompile or recompile apk
-alias apktool="java -jar /home/gmuret/Téléchargements/Programs/apktool_2.4.0.jar"
-
-# Launch android studio
-alias android-studio='sh /home/gmuret/Téléchargements/Programs/android-studio/bin/studio.sh &'
-
 # Launch Pycharm
-alias pycharm='sh /home/gmuret/Téléchargements/Programs/pycharm-community-2017.3.2/bin/pycharm.sh &'
-
-# krita
-alias krita='/home/gmuret/Téléchargements/Programs/krita-4.1.1-x86_64.appimage &'
+# alias pycharm='sh /home/benjamin.laschkar/Téléchargements/Programs/pycharm-community-2017.3.2/bin/pycharm.sh &' # TODO define path

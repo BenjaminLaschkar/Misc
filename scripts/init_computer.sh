@@ -83,7 +83,7 @@ done
 
 
 # --- Install all ---
-if [ $a -eq 1 ]; 
+if [ $a -eq 1 ];
 then
     echo -e "${BLUE}----------- INSTALL ALL ----------------${NC}"
 
@@ -101,10 +101,6 @@ then
 
 	echo -e "${BLUE} - Install terminator ${NC}"
 	sudo apt-get install -y terminator
-	check_error $? $_
-
-	echo -e "${BLUE} - Install sublime ${NC}"
-	sudo apt-get install -y sublime-text
 	check_error $? $_
 
 	echo -e "${BLUE} - Install ssh ${NC}"
@@ -138,7 +134,7 @@ fi
 
 
 # --- Deploy config ---
-if [ $d -eq 1 ]; 
+if [ $d -eq 1 ];
 then
     echo -e "${BLUE}----------- DEPLOY CONFIG ----------------${NC}"
 
@@ -150,16 +146,16 @@ then
 	echo -e "${BLUE} - Overwrite .bash_aliases ${NC}"
 	cd ${CURRENT_DIR}
 	cp ../configs/home/.bash_aliases ~/.bash_aliases
-	
+
 	echo -e "${BLUE} - Overwrite .bashrc ${NC}"
 	cp ../configs/home/.bashrc ~/.bashrc
 
 	echo -e "${BLUE} - Overwrite .gitconfig ${NC}"
 	cp ../configs/home/.gitconfig ~/.gitconfig
-	
+
 	echo -e "${BLUE} - Overwrite .git-prompt ${NC}"
 	cp ../configs/home/.git-prompt.sh ~/.git-prompt.sh
-	
+
 	echo -e "${BLUE} - Overwrite .minirc.dfl (for minicom) ${NC}"
 	cp ../configs/home/.minirc.dfl ~/.minirc.dfl
 
@@ -172,10 +168,6 @@ then
 	echo -e "${BLUE} - Apply personal terminator theme ${NC}"
 	mkdir -p ~/.config/terminator
 	cp ../configs/home/.config/terminator/config ~/.config/terminator/
-
-	echo -e "${BLUE} - Sublime use keybind ${NC}"
-	mkdir -p ~/.config/sublime-text-3/Packages/User
-	cp "../configs/home/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap" ~/.config/sublime-text-3/Packages/User/
 
 	echo -e "${BLUE} - Vim init with Vundle ${NC}"
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

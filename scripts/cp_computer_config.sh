@@ -11,4 +11,3 @@ cp ~/.minirc.dfl ${OUT_DIR}/.minirc.dfl
 cp ~/.zshrc ${OUT_DIR}/.zshrc
 cp ~/.profile ${OUT_DIR}/.profile
 cp ~/.vimrc ${OUT_DIR}/.vimrc
-cp ~/.ssh/config ${OUT_DIR}/.ssh/config

@@ -55,7 +55,7 @@ let mapleader=","
 
 " Personal theme
 set laststatus=2
-colorscheme gruvbox 
+colorscheme gruvbox
 if !has('gui_running')
 	set t_Co=256
 endif
@@ -98,4 +98,3 @@ vnoremap <Leader>P "+p
 nnoremap <silent> <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 nnoremap <C-W> :bd<CR>
-

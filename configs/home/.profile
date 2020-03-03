@@ -22,27 +22,3 @@ PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-# Variable for docker
-export CCACHE_DIR=$HOME/.ccache
-
-# Variable for android home
-export ANDROID_HOME='/media/gmuret/d5e0b3b1-bb60-47f0-a636-2e9a02fbd766/AndroidSDK'
-
-# Source my script
-source ~/Misc/tools/scripts/gmuret/config/COMPUTER_ID.sh
-source ~/Misc/tools/scripts/gmuret/config/common.sh
-
-# Android path
-PATH="/media/gmuret/d5e0b3b1-bb60-47f0-a636-2e9a02fbd766/AndroidSDK/platform-tools/:$PATH"
-PATH="/media/gmuret/d5e0b3b1-bb60-47f0-a636-2e9a02fbd766/AndroidSDK/build-tools/28.0.1/:$PATH"
-PATH="/home/gmuret/Téléchargements/Programs/android-studio/jre/bin/:$PATH"
-
-# My script path
-PATH="${WORKSCRIPT}/docker/:$PATH"
-PATH="${WORKSCRIPT}/flash/:$PATH"
-PATH="${WORKSCRIPT}/init/:$PATH"
-PATH="${WORKSCRIPT}/push/:$PATH"
-PATH="${WORKSCRIPT}/screen/:$PATH"
-PATH="${WORKSCRIPT}/target/:$PATH"
-PATH="${WORKSCRIPT}/tool/:$PATH"

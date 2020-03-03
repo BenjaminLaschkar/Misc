@@ -112,10 +112,5 @@ if ! shopt -oq posix; then
 fi
 
 source ~/.git-prompt.sh
-#PS1='\[\033[36m\]\u\[\033[33m\]@local\[\033[00m\]: \[\033[32m\]\W\[\033[31m\] $(__git_ps1)\[\033[00m\]\$ '
-PS1='\[\033[36m\]\t \[\033[32m\]\W\[\033[31m\] $(__git_ps1)\[\033[00m\]\$ '
-GIT_PS1_SHOWDIRTYSTATE=true
 
-export OE_CORE_PATH='/media/gmuret/d5e0b3b1-bb60-47f0-a636-2e9a02fbd766/oe-core'
-export ANDROID_HOME='/media/gmuret/d5e0b3b1-bb60-47f0-a636-2e9a02fbd766/AndroidSDK'
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

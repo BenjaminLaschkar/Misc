@@ -1,6 +1,6 @@
 [user]
-	email = guillaume.muret@reseau.eseo.fr
-	name = Guillaume Muret
+	email = benjamin.laschkar@softbankrobotics.com
+	name = Benjamin Laschkar
 [color]
     ui = true
 [core]
@@ -13,3 +13,6 @@
 	clean = git-lfs clean -- %f
 [merge]
 	tool = meld
+[config]
+	name = Benjamin LASCHKAR
+	email = benjamin.laschkar@softbankrobotics.com
