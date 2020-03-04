@@ -95,6 +95,10 @@ then
 	sudo apt-get install -y git
 	check_error $? $_
 
+  echo -e "${BLUE} - Install gitk ${NC}"
+  sudo apt-get install -y gitk
+  check_error $? $_
+
 	echo -e "${BLUE} - Install meld for git merge ${NC}"
 	sudo apt-get install -y meld
 	check_error $? $_
