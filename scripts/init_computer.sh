@@ -134,6 +134,12 @@ then
 	echo -e "${BLUE} - Install vim-gnome ${NC}"
 	sudo apt-get install -y vim-gnome
 	check_error $? $_
+
+  echo -e "${BLUE} - Install and upgrade python pip ${NC}"
+  sudo apt-get install -y python-pip
+  pip install --upgrade pip
+  check_error $? $_
+  
 fi
 
 

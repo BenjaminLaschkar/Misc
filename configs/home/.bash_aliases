@@ -14,8 +14,9 @@ gt() {
 alias resetAllRepo="repo forall -c \"git reset --hard ; git clean -fdx\""
 
 # Useful directory
-WORKSPACE="/home/benjamin.laschkar/Workspace"
-alias workscript='cd ${WORKSPACE}'
+WORKSPACE="/home/benjamin/Workspace" # WARN-USER Change benjamin if something else
+alias wp='cd ${WORKSPACE}'
+alias td='cd ${WORKSPACE} ; cd testsuite-python-dialog/dialog_suite ; mkvirtualenv dialog'
 
 # Useful path from target aosp root path
 alias apps='cd ${TARGET_AOSP_ROOT_PATH}/vendor/parrot/apps'
@@ -23,8 +24,8 @@ alias kernel='cd ${TARGET_AOSP_ROOT_PATH}/device/parrot/${TARGET_PRODUCT_OUT}'
 
 # source home files
 alias src-p='source ~/.profile'
-alias src-a='source ~/.bash_aliases'
-alias src-b='source ~/.bashrc'
+alias src-ba='source ~/.bash_aliases'
+alias src-br='source ~/.bashrc'
 alias src-z='source ~/.zshrc'
 
 # Launch monkey test on android car
@@ -45,9 +46,23 @@ packagepath() {
 	adb -s ${TARGET} shell pm path $1
 }
 
-ROBOT_ADDRESS="10.0.164.147"
+ROBOT_IP="192.168.0.12"
+
+switchIP(){
+  if [ ROBOT_IP="192.168.0.12" ]
+  then
+    ROBOT_IP="10.0.164.147"
+  else
+    ROBOT_IP="192.168.0.12"
+  fi
+}
+
 changerobotadress(){
-  ROBOT_ADDRESS=$1
+  ROBOT_IP=$1
+}
+
+adiprobot() {
+   sudo ip route add 192.168.0.$1 dev wlp3s0
 }
 
 # adb version of apk
@@ -88,14 +103,8 @@ find_in_all_files(){
 	find -name "$1" -exec grep --color -rHnwe "$2" {} \;
 }
 
-# Init desk
-alias idesk='initDesk.sh'
 
 alias reboot="echo NO REBOOT !"
-
-#############################
-# COMPUTER SPECIAL SOFTWARE #
-#############################
 
 # Launch Pycharm
 # alias pycharm='sh /home/benjamin.laschkar/Téléchargements/Programs/pycharm-community-2017.3.2/bin/pycharm.sh &' # TODO define path
