@@ -17,8 +17,11 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # set PATH so it includes user's private bin directories
+JAVA_HOME="/usr/lib/jvm/jdk1.8.0_261"
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+export PATH=$JAVA_HOME/bin:$PATH
+export WORKON_HOME="/home/benjamin.laschkar/.local/bin/virtual_env/"
+source `which virtualenvwrapper.sh`
+
+eval $(ssh-agent -s) > /dev/null
+/home/benjamin.laschkar/sshkey.sh

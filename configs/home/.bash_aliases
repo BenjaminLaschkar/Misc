@@ -14,51 +14,20 @@ gt() {
 alias resetAllRepo="repo forall -c \"git reset --hard ; git clean -fdx\""
 
 # Useful directory
-WORKSPACE="/home/benjamin/Workspace" # WARN-USER Change benjamin if something else
+WORKSPACE="/home/benjamin.laschkar/Workspace" # WARN-USER Change benjamin if something else
 alias wp='cd ${WORKSPACE}'
-alias td='cd ${WORKSPACE} ; cd testsuite-python-dialog/dialog_suite ; mkvirtualenv dialog'
-
-# Useful path from target aosp root path
-alias apps='cd ${TARGET_AOSP_ROOT_PATH}/vendor/parrot/apps'
-alias kernel='cd ${TARGET_AOSP_ROOT_PATH}/device/parrot/${TARGET_PRODUCT_OUT}'
 
 # source home files
 alias src-p='source ~/.profile'
 alias src-ba='source ~/.bash_aliases'
 alias src-br='source ~/.bashrc'
 alias src-z='source ~/.zshrc'
-
-# Launch monkey test on android car
-monkey() {
-    adb -s ${TARGET} shell monkey -p $1 -v 5000
-}
-
-# Launch monkey test for 1 event on android car
-monkey1() {
-    adb -s ${TARGET} shell monkey -p $1 -v 1
-}
-
+alias rmknownhosts='rm ~/.ssh/known_hosts'
 alias logcat="adb -s ${TARGET} logcat -v color"
-alias logcat_filter="adb -s ${TARGET} logcat -v color | grep -v GnssLocationProvider | grep -v MOCK_DEMO_APP | grep -v TcpSocketMonitor | grep -v MALVA_STAT_BAR_OVER"
 
 # adb path of package
 packagepath() {
 	adb -s ${TARGET} shell pm path $1
-}
-
-ROBOT_IP="192.168.0.12"
-
-switchIP(){
-  if [ ROBOT_IP="192.168.0.12" ]
-  then
-    ROBOT_IP="10.0.164.147"
-  else
-    ROBOT_IP="192.168.0.12"
-  fi
-}
-
-changerobotadress(){
-  ROBOT_IP=$1
 }
 
 adiprobot() {
@@ -97,14 +66,32 @@ alias ll='ls -alFh'
 alias la='ls -Ah'
 alias l='ls -CFh'
 
-alias windowConfig="adb -s ${TARGET} shell dumpsys window | grep mGlobalConfiguration | grep mBounds=Rect"
-
 find_in_all_files(){
 	find -name "$1" -exec grep --color -rHnwe "$2" {} \;
 }
 
-
 alias reboot="echo NO REBOOT !"
+alias studio="/opt/android-studio/bin/studio.sh"
 
-# Launch Pycharm
-# alias pycharm='sh /home/benjamin.laschkar/Téléchargements/Programs/pycharm-community-2017.3.2/bin/pycharm.sh &' # TODO define path
+# SOFTBANK COMMAND
+
+alias installPackage="echo 'qicli call PackageManager.install /home/nao/' | xclip"
+alias changePassword="echo 'qicli call ALSystem.changePassword nao pepper' | xclip"
+alias deletetoken="echo 'rm ~/.local/share/naoqi/qi.p*' | xclip"
+alias autoflash="echo 'nao-autoflash --erase-user-data x' | xclip"
+ROBOT_IP="10.0.160.71"
+
+switchIP(){
+  if [ ROBOT_IP="10.0.160.71" ]
+  then
+    ROBOT_IP="10.0.164.147"
+  else
+    ROBOT_IP="10.0.160.71"
+  fi
+  echo $ROBOT_IP
+}
+
+changerobotadress(){
+  ROBOT_IP=$1
+}
+alias td='cd ${WORKSPACE} ; cd testsuite-python-dialog/dialog_suite ; mkvirtualenv dialog > /dev/null '
