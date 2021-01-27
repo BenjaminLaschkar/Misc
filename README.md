@@ -27,7 +27,7 @@ git, gitk, meld, terminator, ssh, zsh, powerline, fzf, vim, vim-gnome and python
 
 It will also apply a custom theme for oh-my-zsh and terminator
 
-# Set up git and a sshkey "password-free"
+# Optionnal : set up git and a sshkey "password-free"
 
 You will need to change your .gitconfig file manually to enter your password.
 You can setup an sshkey that will always be valid due to the script sshkey.sh, you will need to modifiate the path and the password in this file.
