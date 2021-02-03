@@ -14,7 +14,7 @@ gt() {
 alias resetAllRepo="repo forall -c \"git reset --hard ; git clean -fdx\""
 
 # Useful directory
-WORKSPACE="/home/benjamin.laschkar/Workspace" # WARN-USER Change benjamin if something else
+WORKSPACE="/home/benjamin/Workspace" # WARN-USER Change benjamin if something else
 alias wp='cd ${WORKSPACE}'
 
 # source home files
@@ -31,7 +31,7 @@ packagepath() {
 }
 
 adiprobot() {
-   sudo ip route add 192.168.0.$1 dev wlp3s0
+   sudo ip route add 192.168.1.$1 dev wlp3s0
 }
 
 # adb version of apk
@@ -79,16 +79,28 @@ alias installPackage="echo 'qicli call PackageManager.install /home/nao/' | xcli
 alias changePassword="echo 'qicli call ALSystem.changePassword nao pepper' | xclip"
 alias deletetoken="echo 'rm ~/.local/share/naoqi/qi.p*' | xclip"
 alias autoflash="echo 'nao-autoflash --erase-user-data x' | xclip"
-ROBOT_IP="10.0.160.71"
+alias logdialog="echo 'journalctl -f -a -t dialog.Conversation -t dialog.dialog -t audio.Audio --output=short-precise' | xclip"
+alias checkpkgdialog="echo 'cat .local/share/PackageManager/apps/dialog/manifest.xml' | xclip"
+alias stopfocus="echo 'qicli call ALAutonomousLife.stopFocus' | xclip"
+ROBOT_IP="10.0.160.40"
+
+sendToRobot(){
+  scp $1 nao@$ROBOT_IP:
+}
 
 switchIP(){
-  if [ ROBOT_IP="10.0.160.71" ]
+  if [ $ROBOT_IP = "10.0.160.40" ];
   then
-    ROBOT_IP="10.0.164.147"
+    ROBOT_IP="192.168.1.55"
   else
-    ROBOT_IP="10.0.160.71"
+    ROBOT_IP="10.0.160.40"
   fi
   echo $ROBOT_IP
+}
+
+conn(){
+  adiprobot $1
+  adb connect 192.168.1.$1
 }
 
 changerobotadress(){
