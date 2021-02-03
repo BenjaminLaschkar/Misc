@@ -29,12 +29,16 @@ It will also apply a custom theme for oh-my-zsh and terminator
 
 # Optionnal : set up git and a sshkey "password-free"
 
-You will need to change your .gitconfig file manually to enter your password.
+If you use a workspace define as /home/your_name/Workspace , you will need to change "your_name" in your home directory in .bash_aliase. <br>
+
+If you use git, you will need to change your .gitconfig file manually to enter your username and mail. <br>
+
 You can setup an sshkey that will always be valid due to the script sshkey.sh, you will need to modifiate the path and the password in this file.
 
-*Improvement for the future / Cool thing to do :*
+# Improvement for the future / Cool thing to do :
 
 - Install virtualenv
+- Add autokey from https://alternativeto.net/software/autokey-py3/about/
 - Set up automatically this project : https://github.com/dbaty/testfinder (install go + place it in /usr/local/ + set up $GOPATH + place testfinder in /usr/local/go/bin/ 
 + add this in .zshrc
 ```
