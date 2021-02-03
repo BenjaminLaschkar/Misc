@@ -35,6 +35,7 @@ You can setup an sshkey that will always be valid due to the script sshkey.sh, y
 *Improvement for the future / Cool thing to do :*
 
 - Install virtualenv
+- Add autokey from https://alternativeto.net/software/autokey-py3/about/
 - Set up automatically this project : https://github.com/dbaty/testfinder (install go + place it in /usr/local/ + set up $GOPATH + place testfinder in /usr/local/go/bin/ 
 + add this in .zshrc
 ```
