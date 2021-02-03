@@ -30,7 +30,9 @@ It will also apply a custom theme for oh-my-zsh and terminator
 # Optionnal : set up git and a sshkey "password-free"
 
 If you use a workspace define as /home/your_name/Workspace , you will need to change "your_name" in your home directory in .bash_aliase. <br>
+
 If you use git, you will need to change your .gitconfig file manually to enter your username and mail. <br>
+
 You can setup an sshkey that will always be valid due to the script sshkey.sh, you will need to modifiate the path and the password in this file.
 
 # Improvement for the future / Cool thing to do :*
