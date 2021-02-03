@@ -35,7 +35,7 @@ If you use git, you will need to change your .gitconfig file manually to enter y
 
 You can setup an sshkey that will always be valid due to the script sshkey.sh, you will need to modifiate the path and the password in this file.
 
-# Improvement for the future / Cool thing to do :*
+# Improvement for the future / Cool thing to do :
 
 - Install virtualenv
 - Add autokey from https://alternativeto.net/software/autokey-py3/about/
